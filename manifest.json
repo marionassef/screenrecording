@@ -1,0 +1,27 @@
+{
+  "name": "Record Screen",
+  "version": "1.0",
+  "description": "Build an Extension for record screen!",
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "permissions": ["desktopCapture", "tabs", "activeTab", "downloads", "storage","declarativeContent", "<all_urls>"],
+
+  "page_action": {
+    "default_popup": "popup.html"
+  },
+  "options_page": "options.html",
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": ["jquery.js","content.js","webcam.js","helloWorld.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": ["Embedded_Hello_world.html"],
+  "manifest_version": 2
+}
