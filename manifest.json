@@ -6,22 +6,21 @@
     "scripts": ["background.js"],
     "persistent": false
   },
-  "permissions": ["desktopCapture", "tabs", "activeTab", "downloads", "storage","declarativeContent", "<all_urls>"],
+  "permissions": ["desktopCapture", "tabs", "activeTab", "downloads", "storage", "<all_urls>"],
 
   "page_action": {
     "default_popup": "popup.html"
   },
-  "options_page": "options.html",
   "content_scripts": [
     {
       "matches": [
         "http://*/*",
         "https://*/*"
       ],
-      "js": ["jquery.js","content.js","webcam.js","helloWorld.js"],
-      "run_at": "document_end"
+      "js": ["content.js"],
+      "all_frames": true
     }
   ],
-  "web_accessible_resources": ["Embedded_Hello_world.html"],
-  "manifest_version": 2
+  "manifest_version": 2,
+  "web_accessible_resources": ["Embedded_Hello_world.html"]
 }
